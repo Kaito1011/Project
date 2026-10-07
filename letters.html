@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You, Lablab 💜</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 50% 20%, #3b2050 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, #291536 0%, transparent 30%),
+        #100817;
+
+    color: #f8effb;
+
+    font-family: "DM Sans", sans-serif;
+}
+
+
+/* ==============================
+   BACKGROUND
+============================== */
+
+.background-glow {
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    left: 50%;
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(146, 85, 174, 0.08);
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+}
+
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+nav {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(1100px, 88%);
+
+    margin: auto;
+
+    padding: 28px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 24px;
+
+    color: #fff;
+}
+
+.logo span {
+    color: #cda5e8;
+}
+
+.back {
+    color: #a997af;
+
+    font-size: 12px;
+
+    transition: 0.3s;
+}
+
+.back:hover {
+    color: white;
+}
+
+
+/* ==============================
+   INTRO
+============================== */
+
+.intro {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    margin-top: 80px;
+}
+
+.intro small {
+    display: block;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 9px;
+
+    color: #a98bb5;
+
+    margin-bottom: 22px;
+}
+
+.intro h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(48px, 8vw, 80px);
+
+    font-weight: 400;
+
+    line-height: 0.9;
+}
+
+.intro h1 span {
+    display: block;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 0.9em;
+
+    color: #cda5e8;
+
+    margin-top: 14px;
+}
+
+.intro p {
+    margin: 30px auto 0;
+
+    width: min(430px, 85%);
+
+    color: #9d8ca5;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* ==============================
+   LETTER AREA
+============================== */
+
+.letter-room {
+    position: relative;
+
+    width: min(1000px, 92%);
+
+    height: 650px;
+
+    margin: 40px auto 0;
+}
+
+
+/* ==============================
+   ENVELOPE
+============================== */
+
+.envelope-wrapper {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 430px;
+
+    height: 290px;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.envelope {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background: #4a2858;
+
+    box-shadow:
+        0 35px 70px rgba(0,0,0,0.45),
+        0 0 50px rgba(154,93,183,0.12);
+
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    transition: 0.6s ease;
+}
+
+.envelope-wrapper:hover .envelope {
+    transform: translateY(-10px) rotate(-1deg);
+
+    box-shadow:
+        0 50px 90px rgba(0,0,0,0.5),
+        0 0 70px rgba(170,100,200,0.2);
+}
+
+
+/* envelope bottom */
+
+.envelope::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #392043;
+
+    clip-path: polygon(
+        0 100%,
+        50% 45%,
+        100% 100%
+    );
+
+    z-index: 3;
+}
+
+
+/* envelope top flap */
+
+.envelope::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 215px solid transparent;
+    border-right: 215px solid transparent;
+
+    border-top: 155px solid #5b326a;
+
+    z-index: 4;
+}
+
+
+/* ==============================
+   SEAL
+============================== */
+
+.seal {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #a96bc2,
+            #724084
+        );
+
+    border: 3px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.4);
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 27px;
+
+    color: white;
+
+    transition: 0.5s;
+}
+
+.envelope-wrapper:hover .seal {
+    transform:
+        translate(-50%, -50%)
+        scale(1.08);
+
+}
+
+
+/* ==============================
+   ENVELOPE MESSAGE
+============================== */
+
+.envelope-message {
+    position: absolute;
+
+    z-index: 8;
+
+    left: 50%;
+    bottom: 23px;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    color: rgba(255,255,255,0.7);
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+
+/* ==============================
+   FLOATING LETTERS
+============================== */
+
+.floating-letter {
+    position: absolute;
+
+    width: 250px;
+
+    min-height: 170px;
+
+    padding: 28px;
+
+    background: #eee3f0;
+
+    color: #39243e;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.3);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+
+    cursor: default;
+}
+
+.floating-letter:hover {
+    transform:
+        translateY(-15px)
+        rotate(0deg) !important;
+
+    box-shadow:
+        0 35px 60px rgba(0,0,0,0.4);
+
+    z-index: 10;
+}
+
+
+/* left */
+
+.letter-left {
+    left: 3%;
+
+    top: 12%;
+
+    transform: rotate(-8deg);
+}
+
+
+/* right */
+
+.letter-right {
+    right: 3%;
+
+    top: 15%;
+
+    transform: rotate(7deg);
+}
+
+
+/* bottom */
+
+.letter-bottom {
+    left: 50%;
+
+    bottom: 0;
+
+    transform:
+        translateX(-50%)
+        rotate(-3deg);
+
+    width: 290px;
+}
+
+
+.floating-letter::before {
+    content: "♡";
+
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    font-size: 18px;
+
+    color: #b17ac8;
+}
+
+.floating-letter small {
+    display: block;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    color: #94789c;
+
+    margin-bottom: 18px;
+}
+
+.floating-letter h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+.floating-letter p {
+    font-family: "Cormorant Garamond", serif;
+
+    margin-top: 15px;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    color: #725c77;
+}
+
+
+/* ==============================
+   MAIN LETTER LINK
+============================== */
+
+.open-letter {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 10px;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+
+    padding: 12px 25px;
+
+    border: 1px solid rgba(207,166,231,0.3);
+
+    border-radius: 50px;
+
+    background: rgba(20,10,28,0.7);
+
+    backdrop-filter: blur(10px);
+
+    color: #d9c3df;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: 0.3s;
+}
+
+.open-letter:hover {
+    background: #9a61b0;
+
+    border-color: #9a61b0;
+
+    color: white;
+
+    transform:
+        translateX(-50%)
+        translateY(-4px);
+}
+
+
+/* ==============================
+   BOTTOM MESSAGE
+============================== */
+
+.final-message {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    margin: 80px auto 120px;
+
+    width: min(600px, 85%);
+}
+
+.final-message .line {
+    width: 45px;
+
+    height: 1px;
+
+    background: rgba(205,165,232,0.35);
+
+    margin: 0 auto 30px;
+}
+
+.final-message p {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 22px;
+
+    line-height: 1.6;
+
+    color: #b8a8be;
+}
+
+.final-message .script {
+    display: block;
+
+    margin-top: 15px;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 32px;
+
+    color: #cda5e8;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #66566d;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width: 750px) {
+
+    .intro {
+        margin-top: 60px;
+    }
+
+    .letter-room {
+        height: 780px;
+    }
+
+    .envelope-wrapper {
+        width: 330px;
+        height: 225px;
+
+        top: 45%;
+    }
+
+    .envelope::after {
+        border-left-width: 165px;
+        border-right-width: 165px;
+        border-top-width: 120px;
+    }
+
+    .floating-letter {
+        width: 190px;
+        min-height: 140px;
+
+        padding: 20px;
+    }
+
+    .floating-letter h2 {
+        font-size: 22px;
+    }
+
+    .floating-letter p {
+        font-size: 13px;
+    }
+
+    .letter-left {
+        left: 0;
+        top: 7%;
+    }
+
+    .letter-right {
+        right: 0;
+        top: 18%;
+    }
+
+    .letter-bottom {
+        bottom: 20px;
+    }
+
+    .open-letter {
+        bottom: 0;
+    }
+
+}
+
+
+@media(max-width: 480px) {
+
+    .letter-room {
+        height: 700px;
+    }
+
+    .envelope-wrapper {
+        width: 285px;
+        height: 195px;
+    }
+
+    .envelope::after {
+        border-left-width: 142px;
+        border-right-width: 142px;
+        border-top-width: 100px;
+    }
+
+    .seal {
+        width: 55px;
+        height: 55px;
+    }
+
+    .floating-letter {
+        width: 155px;
+        min-height: 120px;
+
+        padding: 15px;
+    }
+
+    .floating-letter small {
+        font-size: 6px;
+    }
+
+    .floating-letter h2 {
+        font-size: 19px;
+    }
+
+    .floating-letter p {
+        font-size: 11px;
+    }
+
+    .letter-left {
+        left: -5px;
+    }
+
+    .letter-right {
+        right: -5px;
+    }
+
+    .letter-bottom {
+        width: 210px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="background-glow"></div>
+
+
+<nav>
+
+    <a href="index.html" class="logo">
+        Project Lablab <span>♡</span>
+    </a>
+
+    <a href="index.html" class="back">
+        ← Back
+    </a>
+
+</nav>
+
+
+
+<section class="intro">
+
+    <small>
+        a little place I made for you
+    </small>
+
+    <h1>
+        Letters
+        <span>from me, to you.</span>
+    </h1>
+
+    <p>
+        Not everything I want to say fits into a conversation.
+        So I left some of it here instead.
+    </p>
+
+</section>
+
+
+
+<section class="letter-room">
+
+
+    <!-- LEFT LETTER -->
+
+    <div class="floating-letter letter-left">
+
+        <small>
+            someday
+        </small>
+
+        <h2>
+            When I miss you
+        </h2>
+
+        <p>
+            For those moments when I wish
+            you were a little closer.
+        </p>
+
+    </div>
+
+
+
+    <!-- RIGHT LETTER -->
+
+    <div class="floating-letter letter-right">
+
+        <small>
+            just because
+        </small>
+
+        <h2>
+            A random day
+        </h2>
+
+        <p>
+            Because I don't really need
+            a reason to think about you.
+        </p>
+
+    </div>
+
+
+
+    <!-- MAIN ENVELOPE -->
+
+    <a href="letter.html" class="envelope-wrapper">
+
+        <div class="envelope">
+
+            <div class="seal">
+                J
+            </div>
+
+            <div class="envelope-message">
+                open when you're ready
+            </div>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- BOTTOM LETTER -->
+
+    <div class="floating-letter letter-bottom">
+
+        <small>
+            one day
+        </small>
+
+        <h2>
+            When we finally meet
+        </h2>
+
+        <p>
+            Maybe this one will be
+            written after the distance
+            isn't there anymore.
+        </p>
+
+    </div>
+
+
+
+    <a href="letter.html" class="open-letter">
+        Open the letter →
+    </a>
+
+
+</section>
+
+
+
+<section class="final-message">
+
+    <div class="line"></div>
+
+    <p>
+        Some things are better written slowly,
+        one little feeling at a time.
+    </p>
+
+    <span class="script">
+        This one's for you.
+    </span>
+
+</section>
+
+
+
+<footer>
+
+    Made with love, for Lablab ♡
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#180d24">
+
+    <title>A Letter for You 💜</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(111, 61, 137, 0.3),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    145deg,
+                    #12091b,
+                    #1d0d2b 50%,
+                    #100817
+                );
+            color: #f8efff;
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .background-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: rgba(150, 85, 190, 0.12);
+            filter: blur(100px);
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 500;
+            background: rgba(18, 9, 27, 0.7);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .logo {
+            font-family: "Great Vibes", cursive;
+            font-size: 27px;
+            color: #e3c7f8;
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: #d7bfdc;
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: white;
+            transform: translateX(-3px);
+        }
+
+        /* =========================
+           HERO / INTRO
+        ========================= */
+
+        .intro {
+            position: relative;
+            z-index: 10;
+
+            min-height: 62vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding:
+                120px
+                25px
+                40px;
+
+            transition: 1s ease;
+        }
+
+        .intro.hide {
+            opacity: 0;
+            transform: translateY(-40px);
+            pointer-events: none;
+        }
+
+        .small-text {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #b995ca;
+            margin-bottom: 20px;
+        }
+
+        .intro h1 {
+            position: relative;
+            z-index: 20;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(45px, 8vw, 85px);
+            font-weight: 500;
+            line-height: 0.95;
+
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        .intro h1 span {
+            font-family: "Great Vibes", cursive;
+            color: #d5afea;
+            font-size: 1.15em;
+        }
+
+        .intro p {
+            position: relative;
+            z-index: 20;
+
+            max-width: 520px;
+
+            color: #bdaec5;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+        .hint {
+            position: relative;
+            z-index: 20;
+
+            margin-top: 30px;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            color: #a98db7;
+
+            text-transform: uppercase;
+
+            animation: breathe 2s infinite;
+        }
+
+        @keyframes breathe {
+
+            0%,
+            100% {
+                opacity: 0.45;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+        }
+
+        /* =========================
+           ENVELOPE AREA
+        ========================= */
+
+        .envelope-section {
+            position: relative;
+            z-index: 20;
+
+            min-height: 48vh;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: center;
+
+            padding:
+                30px
+                20px
+                150px;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+
+            width: 360px;
+            height: 250px;
+
+            cursor: pointer;
+
+            perspective: 1200px;
+
+            transition: 0.5s ease;
+        }
+
+        .envelope-wrapper:hover {
+            transform: translateY(-8px);
+        }
+
+        .envelope-wrapper.opened {
+            cursor: default;
+        }
+
+        /* =========================
+           ENVELOPE
+        ========================= */
+
+        .envelope {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            left: 0;
+            bottom: 0;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #6e3b86,
+                    #452052
+                );
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.45),
+                0 0 50px rgba(130, 68, 160, 0.25);
+
+            overflow: visible;
+        }
+
+        .envelope::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.12),
+                    transparent 40%
+                );
+
+            border-radius: inherit;
+        }
+
+        /* =========================
+           PAPER
+        ========================= */
+
+        .paper {
+            position: absolute;
+
+            width: 88%;
+            height: 90%;
+
+            left: 6%;
+            bottom: 10px;
+
+            background: #fffafc;
+
+            color: #38253e;
+
+            border-radius: 4px;
+
+            z-index: 2;
+
+            padding: 25px;
+
+            transition:
+                transform 1.5s cubic-bezier(.2,.8,.2,1),
+                opacity 0.8s ease;
+
+            transform: translateY(10px);
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,0.15);
+        }
+
+        .paper::before {
+            content: "A little something for you...";
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 22px;
+
+            color: #69417b;
+        }
+
+        .envelope-wrapper.opened .paper {
+            transform: translateY(-175px);
+        }
+
+        /* =========================
+           ENVELOPE FRONT
+        ========================= */
+
+        .envelope-front {
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 5;
+
+            overflow: hidden;
+
+            border-radius: 8px;
+        }
+
+        .envelope-front::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left: 180px solid #5a2d6d;
+            border-top: 125px solid transparent;
+            border-bottom: 125px solid transparent;
+        }
+
+        .envelope-front::after {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+            bottom: 0;
+
+            width: 0;
+            height: 0;
+
+            border-right: 180px solid #5a2d6d;
+            border-top: 125px solid transparent;
+            border-bottom: 125px solid transparent;
+        }
+
+        /* =========================
+           FLAP
+        ========================= */
+
+        .flap {
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            top: 0;
+            left: 0;
+
+            z-index: 7;
+
+            transform-origin: top center;
+
+            transition:
+                transform 1.1s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .flap::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left: 180px solid transparent;
+            border-right: 180px solid transparent;
+            border-top: 135px solid #805097;
+        }
+
+        .envelope-wrapper.opened .flap {
+            transform: rotateX(180deg);
+        }
+
+        /* =========================
+           SEAL
+        ========================= */
+
+        .seal {
+            position: absolute;
+
+            z-index: 15;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            width: 62px;
+            height: 62px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #c69bdb,
+                    #86519b
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-family: "Great Vibes", cursive;
+
+            font-size: 28px;
+
+            color: white;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.3),
+                0 0 25px rgba(198,155,219,0.4);
+
+            transition: 0.8s ease;
+        }
+
+        .envelope-wrapper.opened .seal {
+            opacity: 0;
+
+            transform:
+                translate(-50%, -50%)
+                scale(0.3);
+        }
+
+        /* =========================
+           OPEN MESSAGE
+        ========================= */
+
+        .open-message {
+            position: absolute;
+
+            bottom: -70px;
+
+            width: 100%;
+
+            text-align: center;
+
+            color: #bca3c7;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            transition: 0.5s ease;
+        }
+
+        .envelope-wrapper.opened .open-message {
+            opacity: 0;
+        }
+
+        /* =========================
+           ROSE EFFECT
+        ========================= */
+
+        .rose-burst {
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 1000;
+
+            opacity: 0;
+
+            transition: opacity 0.5s ease;
+        }
+
+        .rose-burst.active {
+            opacity: 1;
+        }
+
+        .rose {
+            position: absolute;
+
+            top: -100px;
+
+            user-select: none;
+
+            pointer-events: none;
+
+            filter:
+                drop-shadow(
+                    0 5px 8px rgba(0,0,0,0.35)
+                )
+                drop-shadow(
+                    0 0 8px rgba(255,80,120,0.25)
+                );
+
+            animation:
+                roseFall
+                linear
+                forwards;
+        }
+
+        @keyframes roseFall {
+
+            0% {
+                transform:
+                    translateY(-120px)
+                    translateX(0)
+                    rotate(0deg)
+                    scale(0.3);
+
+                opacity: 0;
+            }
+
+            8% {
+                opacity: 1;
+            }
+
+            25% {
+                transform:
+                    translateY(25vh)
+                    translateX(45px)
+                    rotate(90deg)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translateY(55vh)
+                    translateX(-55px)
+                    rotate(180deg)
+                    scale(0.9);
+            }
+
+            75% {
+                transform:
+                    translateY(80vh)
+                    translateX(45px)
+                    rotate(270deg)
+                    scale(1.1);
+            }
+
+            100% {
+                transform:
+                    translateY(115vh)
+                    translateX(-30px)
+                    rotate(360deg)
+                    scale(0.7);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================
+           ROSE FLASH
+        ========================= */
+
+        .rose-flash {
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,180,210,0.25),
+                    rgba(90,30,110,0.15),
+                    transparent 65%
+                );
+
+            z-index: 999;
+
+            pointer-events: none;
+
+            opacity: 0;
+        }
+
+        .rose-flash.active {
+            animation:
+                flash
+                1.5s
+                ease;
+        }
+
+        @keyframes flash {
+
+            0% {
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================
+           LETTER
+        ========================= */
+
+        .letter-container {
+            position: relative;
+
+            z-index: 30;
+
+            width: min(800px, 90%);
+
+            margin: 0 auto;
+
+            padding:
+                100px
+                0
+                120px;
+
+            opacity: 0;
+
+            transform: translateY(80px);
+
+            pointer-events: none;
+
+            transition:
+                opacity 1.5s ease,
+                transform 1.5s ease;
+        }
+
+        .letter-container.show {
+            opacity: 1;
+
+            transform: translateY(0);
+
+            pointer-events: auto;
+        }
+
+        .letter-paper {
+            background:
+                linear-gradient(
+                    rgba(255,255,255,0.96),
+                    rgba(250,241,250,0.98)
+                );
+
+            color: #35243a;
+
+            padding:
+                clamp(40px, 7vw, 85px);
+
+            border-radius: 4px;
+
+            box-shadow:
+                0 30px 90px rgba(0,0,0,0.4),
+                0 0 50px rgba(180,120,200,0.12);
+
+            position: relative;
+        }
+
+        .letter-paper::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 15px;
+
+            border:
+                1px solid
+                rgba(110,61,137,0.15);
+
+            pointer-events: none;
+        }
+
+        .letter-date {
+            text-align: right;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 17px;
+
+            color: #876a8e;
+
+            margin-bottom: 45px;
+        }
+
+        .letter-paper h2 {
+            font-family:
+                "Great Vibes",
+                cursive;
+
+            font-size:
+                clamp(38px, 6vw, 58px);
+
+            font-weight: 400;
+
+            color: #673c76;
+
+            margin-bottom: 35px;
+        }
+
+        .letter-paper p {
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size:
+                clamp(19px, 2.5vw, 23px);
+
+            line-height: 1.8;
+
+            margin-bottom: 28px;
+
+            text-align: justify;
+        }
+
+        .letter-paper .heart {
+            text-align: center;
+
+            font-size: 28px;
+
+            color: #9a5caa;
+
+            margin: 30px 0;
+        }
+
+        .signature {
+            margin-top: 50px;
+
+            text-align: right;
+        }
+
+        .signature span {
+            display: block;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 20px;
+
+            color: #76567d;
+        }
+
+        .signature strong {
+            display: block;
+
+            font-family:
+                "Great Vibes",
+                cursive;
+
+            font-size: 42px;
+
+            font-weight: 400;
+
+            color: #673c76;
+
+            margin-top: 5px;
+        }
+
+        /* =========================
+           BOTTOM
+        ========================= */
+
+        .bottom-message {
+            text-align: center;
+
+            margin-top: 60px;
+
+            color: #a996ad;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+        }
+
+        .back-button {
+            display: block;
+
+            width: fit-content;
+
+            margin:
+                30px
+                auto
+                0;
+
+            padding:
+                12px
+                25px;
+
+            border:
+                1px solid
+                rgba(205,169,220,0.35);
+
+            border-radius: 50px;
+
+            color: #d8c0df;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            transition: 0.3s ease;
+        }
+
+        .back-button:hover {
+            background:
+                rgba(180,120,200,0.12);
+
+            border-color:
+                rgba(220,180,235,0.7);
+
+            transform:
+                translateY(-3px);
+        }
+
+        /* =========================
+           BACKGROUND PETALS
+        ========================= */
+
+        .petal {
+            position: fixed;
+
+            top: -30px;
+
+            z-index: 2;
+
+            pointer-events: none;
+
+            opacity: 0.6;
+
+            animation:
+                petalFall
+                linear
+                forwards;
+        }
+
+        @keyframes petalFall {
+
+            0% {
+                transform:
+                    translateY(-50px)
+                    rotate(0deg);
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+            }
+
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+                height: 60px;
+
+                padding:
+                    0 20px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .back-link {
+                font-size: 11px;
+            }
+
+            .intro {
+                min-height: 58vh;
+
+                padding:
+                    100px
+                    20px
+                    25px;
+            }
+
+            .intro h1 {
+                font-size:
+                    clamp(42px, 13vw, 65px);
+            }
+
+            .intro p {
+                font-size: 13px;
+
+                max-width: 340px;
+            }
+
+            .envelope-section {
+                min-height: 50vh;
+
+                padding:
+                    20px
+                    20px
+                    130px;
+            }
+
+            .envelope-wrapper {
+                width: 300px;
+
+                height: 210px;
+            }
+
+            .envelope-front::before {
+                border-left-width: 150px;
+
+                border-top-width: 105px;
+
+                border-bottom-width: 105px;
+            }
+
+            .envelope-front::after {
+                border-right-width: 150px;
+
+                border-top-width: 105px;
+
+                border-bottom-width: 105px;
+            }
+
+            .flap::before {
+                border-left-width: 150px;
+
+                border-right-width: 150px;
+
+                border-top-width: 115px;
+            }
+
+            .envelope-wrapper.opened .paper {
+                transform:
+                    translateY(-145px);
+            }
+
+            .letter-paper {
+                padding:
+                    38px 28px;
+            }
+
+            .letter-paper::before {
+                inset: 10px;
+            }
+
+            .letter-paper p {
+                text-align: left;
+            }
+
+            .rose {
+                font-size:
+                    22px !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <div
+        class="rose-flash"
+        id="roseFlash">
+    </div>
+
+    <div
+        class="rose-burst"
+        id="roseBurst">
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <a
+            href="index.html"
+            class="logo">
+            Project Lablab ♡
+        </a>
+
+        <a
+            href="letters.html"
+            class="back-link">
+            ← Back to Letters
+        </a>
+
+    </nav>
+
+
+    <!-- INTRO -->
+
+    <section
+        class="intro"
+        id="intro">
+
+        <div class="small-text">
+            A little something
+        </div>
+
+        <h1>
+
+            Open this when<br>
+
+            you're ready,
+            <span>Lablab.</span>
+
+        </h1>
+
+        <p>
+
+            I wanted to give you something
+            that feels a little more personal
+            than just another message on a screen.
+
+        </p>
+
+        <div class="hint">
+
+            ↓ there's something waiting for you
+
+        </div>
+
+    </section>
+
+
+    <!-- ENVELOPE -->
+
+    <section class="envelope-section">
+
+        <div
+            class="envelope-wrapper"
+            id="envelopeWrapper"
+            onclick="openLetter()">
+
+            <div class="envelope">
+
+                <div class="paper"></div>
+
+                <div class="envelope-front"></div>
+
+                <div class="flap"></div>
+
+                <div class="seal">
+                    J
+                </div>
+
+            </div>
+
+            <div class="open-message">
+
+                Tap the envelope
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LETTER -->
+
+    <main
+        class="letter-container"
+        id="letter">
+
+        <article class="letter-paper">
+
+            <div class="letter-date">
+
+                For you, Lablab 💜
+
+            </div>
+
+            <h2>
+
+                Dear, Lablab
+
+            </h2>
+
+            <p>
+
+                I just want to tell you something that
+                has been on my mind. I know that sometimes,
+                when someone gives too much attention or
+                expresses their feelings strongly, it can
+                feel like lovebombing. I understand if you
+                ever think that about me, and I don’t blame
+                you for being careful with your feelings.
+
+            </p>
+
+            <p>
+
+                But I want you to know that what I feel
+                for you is genuine. I’m not saying these
+                things just because everything between us
+                is still new, and I’m not trying to rush
+                you into anything. I simply want to be
+                honest about how I feel.
+
+            </p>
+
+            <div class="heart">
+                ♡
+            </div>
+
+            <p>
+
+                I don’t want you to feel pressured to
+                believe me just because I say that I love
+                you. I would rather show you through the
+                way I treat you, the way I listen to you,
+                and the way I continue choosing to know
+                you more each day.
+
+            </p>
+
+            <p>
+
+                I know that words can be easy to say.
+                That’s why I don’t want my words to be
+                the only proof of what I feel. I want
+                my actions, patience, and consistency
+                to speak for me too.
+
+            </p>
+
+            <p>
+
+                So if you ever doubt whether I’m being
+                genuine, I hope you remember that I’m
+                not here just for the excitement of
+                something new. I genuinely enjoy having
+                you in my life. I love our random
+                conversations, our laughs, our games,
+                our flirting, and even those simple
+                moments when we just talk about nothing.
+
+            </p>
+
+            <p>
+
+                I don't know exactly where this will
+                take us, but I know that I want to keep
+                getting to know you. I want to experience
+                more moments with you, even if for now
+                there's still distance between us.
+
+            </p>
+
+            <p>
+
+                And if one day we finally get the chance
+                to meet, I hope we can look back at this
+                little chapter and smile at how everything
+                started.
+
+            </p>
+
+            <p>
+
+                Until then, I'll keep choosing to be here,
+                to be honest with you, and to appreciate
+                every moment we have.
+
+            </p>
+
+            <p>
+
+                I love you always, in all ways ❤️
+
+            </p>
+
+            <div class="signature">
+
+                <span>
+                    Always,
+                </span>
+
+                <strong>
+                    Your Lablab
+                </strong>
+
+            </div>
+
+        </article>
+
+
+        <div class="bottom-message">
+
+            Written with a little courage
+            and a lot of love.
+
+        </div>
+
+
+        <a
+            href="letters.html"
+            class="back-button">
+
+            ← Back to all letters
+
+        </a>
+
+    </main>
+
+
+    <script>
+
+        const envelopeWrapper =
+            document.getElementById(
+                "envelopeWrapper"
+            );
+
+        const intro =
+            document.getElementById(
+                "intro"
+            );
+
+        const letter =
+            document.getElementById(
+                "letter"
+            );
+
+        const roseBurst =
+            document.getElementById(
+                "roseBurst"
+            );
+
+        const roseFlash =
+            document.getElementById(
+                "roseFlash"
+            );
+
+        let opened = false;
+
+
+        /* =========================
+           OPEN LETTER
+        ========================= */
+
+        function openLetter() {
+
+            if (opened) return;
+
+            opened = true;
+
+            envelopeWrapper.classList.add(
+                "opened"
+            );
+
+            intro.classList.add(
+                "hide"
+            );
+
+
+            setTimeout(() => {
+
+                roseFlash.classList.add(
+                    "active"
+                );
+
+                roseExplosion();
+
+            }, 450);
+
+
+            setTimeout(() => {
+
+                letter.classList.add(
+                    "show"
+                );
+
+                setTimeout(() => {
+
+                    letter.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }, 300);
+
+            }, 2200);
+
+        }
+
+
+        /* =========================
+           ROSE EXPLOSION
+        ========================= */
+
+        function roseExplosion() {
+
+            roseBurst.classList.add(
+                "active"
+            );
+
+
+            for (
+                let i = 0;
+                i < 90;
+                i++
+            ) {
+
+                setTimeout(() => {
+
+                    createRose();
+
+                }, i * 22);
+
+            }
+
+
+            setTimeout(() => {
+
+                for (
+                    let i = 0;
+                    i < 50;
+                    i++
+                ) {
+
+                    setTimeout(() => {
+
+                        createRose();
+
+                    }, i * 30);
+
+                }
+
+            }, 700);
+
+
+            setTimeout(() => {
+
+                roseBurst.classList.remove(
+                    "active"
+                );
+
+            }, 9000);
+
+        }
+
+
+        /* =========================
+           CREATE ROSE
+        ========================= */
+
+        function createRose() {
+
+            const rose =
+                document.createElement(
+                    "div"
+                );
+
+            rose.className =
+                "rose";
+
+            rose.innerHTML =
+                "🌹";
+
+
+            rose.style.left =
+                Math.random() * 100 + "vw";
+
+
+            const size =
+                20 +
+                Math.random() * 30;
+
+            rose.style.fontSize =
+                size + "px";
+
+
+            const duration =
+                4 +
+                Math.random() * 5;
+
+            rose.style.animationDuration =
+                duration + "s";
+
+
+            rose.style.animationDelay =
+                Math.random() * 0.8 + "s";
+
+
+            rose.style.transform =
+                `rotate(
+                    ${Math.random() * 80 - 40}deg
+                )`;
+
+
+            roseBurst.appendChild(
+                rose
+            );
+
+
+            setTimeout(() => {
+
+                rose.remove();
+
+            }, (duration + 2) * 1000);
+
+        }
+
+
+        /* =========================
+           BACKGROUND PETALS
+        ========================= */
+
+        function createPetal() {
+
+            const petal =
+                document.createElement(
+                    "div"
+                );
+
+            petal.className =
+                "petal";
+
+            petal.innerHTML =
+                "✦";
+
+            petal.style.left =
+                Math.random() * 100 + "vw";
+
+            petal.style.fontSize =
+                (8 + Math.random() * 8) +
+                "px";
+
+            petal.style.opacity =
+                0.2 +
+                Math.random() * 0.4;
+
+            petal.style.animationDuration =
+                (8 + Math.random() * 8) +
+                "s";
+
+            document.body.appendChild(
+                petal
+            );
+
+
+            setTimeout(() => {
+
+                petal.remove();
+
+            }, 17000);
+
+        }
+
+
+        setInterval(
+            createPetal,
+            900
+        );
+
+    </script>
+
+</body>
+
+</html>
