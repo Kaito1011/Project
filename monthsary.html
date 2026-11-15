@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#180d24">
+<title>One Month of Us 💜 | Project Lablab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#180d24;--plum:#29133d;--violet:#6f3d89;--lavender:#c8a7e8;
+  --cream:#f8efff;--pink:#edb5e9;--gold:#e7c7a5;--muted:#cdbbd8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--cream);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:
+ radial-gradient(ellipse at 15% 15%,#6f3d8930,transparent 38%),
+ radial-gradient(ellipse at 85% 65%,#edb5e916,transparent 34%),
+ linear-gradient(145deg,#180d24,#21102f 55%,#180d24)}
+a{color:inherit}
+button{font:inherit}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.09;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+#petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.petal{position:absolute;top:-30px;width:9px;height:14px;border-radius:90% 0 90% 0;background:linear-gradient(145deg,#f4c7ed,#a878bd);opacity:.48;animation:fall linear infinite}
+@keyframes fall{to{transform:translate3d(80px,110vh,0) rotate(560deg)}}
+nav{position:absolute;top:0;left:0;width:100%;padding:25px 7%;display:flex;justify-content:space-between;align-items:center;z-index:3}
+.brand{font-family:"Cormorant Garamond",serif;letter-spacing:.16em;font-size:14px;color:var(--lavender);text-transform:uppercase}
+.nav-note{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#d8c6e2a8}
+main,footer{position:relative;z-index:1}
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:120px 22px 75px;position:relative}
+.hero-inner{max-width:800px}
+.eyebrow{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3,p{margin-top:0}
+.hero h1{font:500 clamp(56px,11vw,112px)/.92 "Cormorant Garamond",serif;margin:27px 0 18px}
+.script{font:clamp(32px,6vw,54px) "Great Vibes",cursive;color:var(--pink)}
+.hero-copy{max-width:490px;margin:24px auto 30px;color:var(--muted);font-size:14px;line-height:1.9}
+.primary{border:1px solid #c8a7e88a;background:#c8a7e814;color:var(--cream);padding:14px 23px;border-radius:999px;letter-spacing:.1em;text-transform:uppercase;font-size:10px;cursor:pointer;transition:.3s}
+.primary:hover{background:#c8a7e82b;transform:translateY(-2px);box-shadow:0 10px 35px #c8a7e820}
+.scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;color:#cdbbd899;text-transform:uppercase}
+.orbit{width:160px;height:160px;border:1px solid #c8a7e84a;border-radius:50%;margin:0 auto 25px;display:grid;place-items:center;position:relative;box-shadow:0 0 70px #6f3d8922}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #edb5e92b;border-radius:50%;inset:12px}
+.orbit:after{inset:-9px;border-style:dashed;animation:spin 38s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.heart{font-size:45px;color:var(--pink);text-shadow:0 0 35px #edb5e9a8}
+.section{padding:105px 22px;max-width:1000px;margin:auto}
+.section-head{text-align:center;margin-bottom:48px}
+.section-head h2{font:500 clamp(38px,6vw,62px)/1 "Cormorant Garamond",serif;margin:15px 0}
+.section-head p{color:var(--muted);font-size:13px;line-height:1.8;max-width:520px;margin:0 auto}
+.memory-card{max-width:720px;margin:auto;padding:clamp(25px,6vw,55px);border:1px solid #c8a7e83b;background:linear-gradient(145deg,#ffffff0b,#6f3d8910);border-radius:5px;position:relative}
+.memory-card:before{content:"“";position:absolute;top:0;left:22px;font:100px "Cormorant Garamond",serif;color:#c8a7e82d}
+.memory-card p{font:clamp(23px,4vw,34px)/1.45 "Cormorant Garamond",serif;text-align:center;margin:0;position:relative}
+.memory-card .small{font:11px "DM Sans",sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-align:center;margin-top:25px}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.tile{min-height:190px;padding:25px 20px;border:1px solid #c8a7e82b;background:#ffffff08;display:flex;flex-direction:column;justify-content:space-between;transition:.3s}
+.tile:hover{transform:translateY(-5px);background:#c8a7e811;border-color:#c8a7e86b}
+.tile .symbol{font-size:25px;color:var(--pink)}
+.tile h3{font:500 25px "Cormorant Garamond",serif;margin:20px 0 8px}
+.tile p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
+.promise-wrap{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.promise-art{min-height:330px;border:1px solid #c8a7e83b;background:radial-gradient(circle at 50% 45%,#6f3d8945,transparent 55%),#ffffff05;display:grid;place-items:center;position:relative;overflow:hidden}
+.promise-art .big-heart{font-size:105px;color:#edb5e9b0;filter:drop-shadow(0 0 35px #edb5e955);animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.09)}}
+.promise-copy h2{font:500 clamp(40px,5vw,58px)/1 "Cormorant Garamond",serif}
+.promise-copy p{font-size:13px;line-height:2;color:var(--muted)}
+.promise-list{list-style:none;padding:0;margin:23px 0 0}
+.promise-list li{padding:12px 0;border-bottom:1px solid #c8a7e827;font:20px "Cormorant Garamond",serif}
+.promise-list li:before{content:"✧";color:var(--pink);margin-right:12px}
+.letter-area{text-align:center}
+.envelope-button{width:190px;height:130px;margin:15px auto 25px;position:relative;border:1px solid #c8a7e866;background:linear-gradient(145deg,#6f3d89,#29133d);cursor:pointer;display:grid;place-items:center;box-shadow:0 15px 55px #0005;transition:.3s}
+.envelope-button:hover{transform:translateY(-6px)}
+.envelope-button span{font:30px "Great Vibes",cursive;color:#f8efff}
+.envelope-button:before{content:"";position:absolute;top:0;left:0;width:0;height:0;border-left:94px solid transparent;border-right:94px solid transparent;border-top:66px solid #a77ac0;filter:brightness(.85)}
+.envelope-button:after{content:"";position:absolute;bottom:0;left:0;width:0;height:0;border-left:94px solid transparent;border-right:94px solid transparent;border-bottom:70px solid #3b2050}
+.hint{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--lavender)}
+.letter{display:none;max-width:680px;margin:30px auto 0;text-align:left;padding:clamp(25px,6vw,48px);background:#f8efff;color:#34213e;box-shadow:0 20px 70px #0005;transform:translateY(12px);opacity:0;transition:.5s}
+.letter.open{display:block;animation:reveal .7s forwards}
+@keyframes reveal{to{opacity:1;transform:translateY(0)}}
+.letter .date{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#805b91}
+.letter h3{font:42px "Cormorant Garamond",serif;margin:15px 0}
+.letter p{font:16px/1.9 "Cormorant Garamond",serif;color:#493452}
+.letter .sign{font:34px "Great Vibes",cursive;color:#805b91;text-align:right;margin:20px 0 0}
+.final{padding:110px 22px 120px;text-align:center;background:linear-gradient(180deg,transparent,#6f3d8917)}
+.final h2{font:500 clamp(45px,8vw,82px)/.95 "Cormorant Garamond",serif;margin:22px 0}
+.final p{color:var(--muted);font-size:13px;line-height:1.9;max-width:490px;margin:0 auto}
+.infinity{font:70px "Cormorant Garamond",serif;color:var(--pink);margin:5px 0 20px;text-shadow:0 0 35px #edb5e955}
+footer{text-align:center;padding:25px;color:#cdbbd866;font-size:9px;letter-spacing:.2em;text-transform:uppercase;border-top:1px solid #c8a7e81a}
+.music{position:fixed;right:18px;bottom:18px;z-index:5;border:1px solid #c8a7e85c;background:#29133ddd;color:var(--cream);border-radius:999px;padding:11px 15px;font-size:10px;letter-spacing:.1em;cursor:pointer;backdrop-filter:blur(10px)}
+@media(max-width:700px){nav{padding:20px 6%}.nav-note{display:none}.section{padding:78px 20px}.timeline{grid-template-columns:1fr}.tile{min-height:145px}.promise-wrap{grid-template-columns:1fr}.promise-art{min-height:230px}.hero{padding-top:115px}.letter p{font-size:15px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="grain"></div><div id="petals"></div>
+<nav><div class="brand">Project Lablab <span style="color:var(--pink)">♡</span></div><div class="nav-note">Our first chapter · 01</div></nav>
+<main>
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="orbit"><div class="heart">♡</div></div>
+    <div class="eyebrow">A little something for my favorite person</div>
+    <h1>One month<br><span style="color:var(--lavender);font-style:italic">of us.</span></h1>
+    <div class="script">and a thousand tomorrows to look forward to</div>
+    <p class="hero-copy">A month may sound like a little amount of time, but it has already given me so many reasons to be thankful that our paths crossed.</p>
+    <button class="primary" onclick="document.querySelector('#our-story').scrollIntoView({behavior:'smooth'})">Open our little story&nbsp; ↓</button>
+  </div>
+  <div class="scroll">scroll slowly · there's no rush</div>
+</section>
+
+<section class="section" id="our-story">
+  <div class="section-head"><div class="eyebrow">What I keep close to my heart</div><h2>It's not just the happy moments.</h2><p>One of my favorite memories from this first month isn't a perfect date or a grand romantic moment. It's the way we handled something difficult together.</p></div>
+  <div class="memory-card"><p>We had an argument, but instead of letting it become something that pushed us apart, we tried to understand each other. We listened, softened our pride, and found our way back to us. That moment reminded me that love isn't about never having difficult days. It's about how we face them together.</p><div class="small">A moment that meant more than you know</div></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><div class="eyebrow">A little wishlist for two</div><h2>All the life I want to share with you</h2><p>Just like you said, I want to experience life with you too. Not only the big milestones, but all the little ordinary things that become special because they're with you.</p></div>
+  <div class="timeline">
+    <article class="tile"><div class="symbol">☼</div><div><h3>Slow mornings</h3><p>Waking up beside you, making breakfast, and having nowhere else to be.</p></div></article>
+    <article class="tile"><div class="symbol">♡</div><div><h3>Little adventures</h3><p>Picnics, beach days, coffee dates, photobooths, and spontaneous plans.</p></div></article>
+    <article class="tile"><div class="symbol">☾</div><div><h3>Quiet nights</h3><p>Movies, long conversations, comfortable silence, and falling asleep feeling loved.</p></div></article>
+    <article class="tile"><div class="symbol">✿</div><div><h3>Growing together</h3><p>Learning, changing, making mistakes, and becoming better without giving up on us.</p></div></article>
+    <article class="tile"><div class="symbol">✧</div><div><h3>Firsts and lasts</h3><p>Our first pictures, first trips, new traditions, and countless memories still waiting.</p></div></article>
+    <article class="tile"><div class="symbol">∞</div><div><h3>The ordinary days</h3><p>Even doing absolutely nothing sounds lovely when I get to do it with you.</p></div></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="promise-wrap">
+    <div class="promise-art"><div class="big-heart">♡</div></div>
+    <div class="promise-copy"><div class="eyebrow">Not perfect promises. Honest ones.</div><h2>I'll keep choosing us.</h2><p>I can't promise that every day will be easy or that we'll always understand each other right away. But I can promise to keep showing up, to make room for your feelings, and to work through the hard moments with you.</p>
+      <ul class="promise-list"><li>I'll choose communication over silence.</li><li>I'll choose understanding over pride.</li><li>I'll keep learning how to love you better.</li><li>I'll grow with you, not away from you.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="section letter-area">
+  <div class="section-head"><div class="eyebrow">For your eyes only</div><h2>I wrote you something, love.</h2><p>Take your time. This little letter is yours.</p></div>
+  <button class="envelope-button" id="openLetter" aria-expanded="false" aria-controls="letter"><span>To my love</span></button>
+  <div class="hint" id="letterHint">tap the envelope to open</div>
+  <article class="letter" id="letter">
+    <div class="date">Our first monthsary · With all my love</div>
+    <h3>My dearest Abigail,</h3>
+    <p>Happy first monthsary, my love. 💜</p>
+    <p>I've been thinking about what you wrote, especially the part where you said you want to grow with me and experience life together. I want that too. I want the dates and adventures, but I also want the quiet days, the random conversations, the silly moments, and even the days when life feels a little too heavy.</p>
+    <p>One of the memories I'll keep from this first month is how we handled an argument together. It showed me that what we have is worth understanding and taking care of. We won't always get everything right, but I hope we never stop trying to hear each other, meet each other halfway, and choose love even when it takes patience.</p>
+    <p>I promise to keep choosing you, to communicate with you honestly, and to keep growing alongside you. I want to be someone you can talk to, laugh with, lean on, and feel safe being yourself around. I don't expect us to be perfect. I just want us to keep being genuine with each other.</p>
+    <p>Thank you for letting me be part of your life, love. Thank you for your patience, your affection, your effort, and for choosing me too. This is only our first month, and there's still so much of life waiting for us. I hope we get to collect all those little moments you dream about, one by one.</p>
+    <p>One month down, my love. So many memories left to make. Wherever the next chapters take us, I hope we keep writing them together.</p>
+    <p class="sign">Forever your Eien ♡</p>
+  </article>
+</section>
+
+<section class="final">
+  <div class="eyebrow">The beginning of many chapters</div>
+  <div class="infinity">∞</div>
+  <h2>One month down.<br><span style="color:var(--lavender);font-style:italic">A lifetime to discover.</span></h2>
+  <p>Thank you for being my favorite part of this chapter. Happy first monthsary, my love. I love you. Mwaa. 💜</p>
+  <div class="script" style="margin-top:28px">Always, your Eien.</div>
+</section>
+</main>
+<footer>Made with love · Project Lablab · 01</footer>
+<button class="music" id="musicButton" type="button">♫ Play our song</button>
+<audio id="bgMusic" src="./audio/about-you.mp3" loop preload="none"></audio>
+<script>
+const petalRoot=document.getElementById('petals');
+for(let i=0;i<22;i++){const p=document.createElement('i');p.className='petal';p.style.left=Math.random()*100+'%';p.style.animationDuration=(12+Math.random()*17)+'s';p.style.animationDelay=(-Math.random()*25)+'s';p.style.opacity=(.2+Math.random()*.35);p.style.transform=`rotate(${Math.random()*180}deg)`;petalRoot.appendChild(p)}
+const openBtn=document.getElementById('openLetter'),letter=document.getElementById('letter'),hint=document.getElementById('letterHint');
+openBtn.addEventListener('click',()=>{const opened=letter.classList.toggle('open');openBtn.setAttribute('aria-expanded',String(opened));hint.textContent=opened?'a little piece of my heart, just for you':'tap the envelope to open';if(opened)setTimeout(()=>letter.scrollIntoView({behavior:'smooth',block:'center'}),150)});
+const music=document.getElementById('bgMusic'),musicBtn=document.getElementById('musicButton');
+musicBtn.addEventListener('click',async()=>{try{if(music.paused){await music.play();musicBtn.textContent='Ⅱ Pause our song'}else{music.pause();musicBtn.textContent='♫ Play our song'}}catch(e){musicBtn.textContent='Add audio/about-you.mp3'}});
+</script>
+</body>
+</html>

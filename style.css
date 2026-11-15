@@ -2461,5 +2461,54 @@ footer {
     .real-letter p {
         font-size: 1.1rem;
     }
+    
+.monthsary-surprise {
+    text-align: center;
+    padding: 80px 25px;
+    margin: 60px auto;
+    max-width: 750px;
+    border: 1px solid #c8a7e855;
+    border-radius: 15px;
+    background: linear-gradient(
+        145deg,
+        #29133d,
+        #180d24
+    );
+}
+
+.surprise-label {
+    color: #e7c7a5;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.monthsary-surprise h2 {
+    color: #f8efff;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    margin: 20px 0;
+}
+
+.monthsary-surprise p {
+    color: #cdbbd8;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.monthsary-button {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid #c8a7e8;
+    border-radius: 50px;
+    color: #f8efff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.monthsary-button:hover {
+    background: #6f3d89;
+    transform: translateY(-3px);
+}
+   
 }
 }
